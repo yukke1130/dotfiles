@@ -1,0 +1,36 @@
+escape ^T^T
+defencoding utf8
+
+#caption always "%{= wk} %-w%{=bu dr}%n %t%{-}%+w %= %{=b wb}%y/%m/%d(%D) %{=b wb}%c"
+hardstatus alwayslastline "%w | %h"
+#hardstatus string "[screen %n: %t] %h"
+defscrollback 10000
+
+startup_message off
+autodetach on
+
+bind -c REGION 2 split
+bind -c REGION 1 only
+bind -c REGION 0 remove
+bind -c REGION o focus
+bind x command -c REGION
+
+bind ^U eval "encoding utf8" "stuff 'export LANG=ja_JP.UTF-8\012'"
+bind ^E eval "encoding euc" "stuff 'export LANG=ja_JP.EUC-JP\012'"
+bind ^J eval "encoding sjis" "stuff 'export LANG=ja_JP.SJIS\012'"
+
+#markkeys 'h=^B:l=^F:$=^E'
+
+#idle 1200
+blankerprg /usr/bin/fortune starwars
+alias ls='ls -G'
+shelltitle "$ |bash"
+
+#hardstatus alwayslastline "%w"
+
+hardstatus alwayslastline "%`%-w%{=b bw}%n %t%{-}%+w"
+
+shell -$SHELL
+
+defbce on
+
