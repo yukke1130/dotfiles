@@ -1,0 +1,31 @@
+# Emacs backup files
+
+*~
+.#*
+\#*\#
+session.*
+*.elc
+
+# Backup dir
+.backup/
+
+# TAGS
+TAGS
+GTAGS
+GRTAGS
+GPATH
+
+# etc
+init.elc
+.framesize
+.session
+.scratch
+plugins/taihi/
+
+# ignore diff files
+*.diff
+*.orig
+*.patch
+
+# ignore archive directory
+elpa/archives
