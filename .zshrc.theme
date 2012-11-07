@@ -18,13 +18,12 @@ ZSH_RESET_COLOR="%{$reset_color%}"
 ZSH_PREFIX_L="%{$fg[green]%}[$ZSH_RESET_COLOR"
 ZSH_PREFIX_R="%{$fg[green]%}]$ZSH_RESET_COLOR"
 ZSH_TIME="$ZSH_PREFIX_L$fg[cyan]%T$ZSH_RESET_COLOR$ZSH_PREFIX_R$ZSH_RESET_COLOR"
-# ZSH_REMOTE_HOST="$ZSH_PREFIX_L$fg[yellow]$ZSH_RESET_COLOR$ZSH_PREFIX_R$ZSH_RESET_COLOR"
-ZSH_REMOTE_HOST="$ZSH_PREFIX_L%{$fg[cyan]%}%M$ZSH_PREFIX_R%{$fg[cyan]%}"
+ZSH_REMOTE_HOST="$ZSH_PREFIX_L$fg[yellow]%M$ZSH_RESET_COLOR$ZSH_PREFIX_R$ZSH_RESET_COLOR"
 ZSH_GIT_DIRTY="%{$fg[red]%}✘$RESET_COLOR "
 ZSH_GIT_CLEAN="%{$fg[green]%}✓$RESET_COLOR "
 
-
-
+PROMPT='%{${fg[red]}%}%_%%%{${reset_color}%}$(git_prompt_info) '
+#
 # get the name of the branch we are on
 function git_prompt_info() {
   ref=$(git symbolic-ref HEAD 2> /dev/null) || return
@@ -41,8 +40,7 @@ parse_git_dirty() {
   fi
 }
 
-[ -n "${REMOTEHOST}${SSH_CONNECTION}" ] &&
-# PROMPT='%{${fg[red]}%}%_%%%{${reset_color}%}$(git_prompt_info)'
-PROMPT='$ZSH_REMOTE_HOST$(git_prompt_info) '
+
 RPROMPT='$ZSH_PREFIX_L%{$fg[cyan]%}%~$ZSH_RESET_COLOR$ZSH_PREFIX_R'
 SPROMPT="correct: %R -> %r ? "
+
